@@ -9,16 +9,12 @@ f = Fernet(key)
 
 @app.route('/')
 def hello_world():
-    return render_template('index.html')
+    return index('index.html')
 
-@app.route('/exercice1')
-def exo1():
-     return render_template('exercice1.html')
+@app.route('templates/site/index.html')
+def index():
+     return render_template('index.html')
 
-@app.route('/exercice2')
-def exo2():
-     return render_template('exercice2.html'
-    app.run(debug=True)
                                                                                                                                                      
 if __name__ == "__main__":
   app.run(debug=True)
