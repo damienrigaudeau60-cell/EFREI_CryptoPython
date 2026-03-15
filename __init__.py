@@ -1,24 +1,24 @@
 from cryptography.fernet import Fernet
-from flask import Flask, render_template_string, render_template, jsonify
-from flask import render_template
-from flask import json
-from urllib.request import urlopen
-import sqlite3
-                                                                                                                                       
-app = Flask(__name__)                                                                                                                  
-                                                                                                                                       
-@app.route('/')
-def hello_world():
-    return render_template('hello.html')
+from flask import Flask, render_template
 
+app = Flask(__name__)
+
+# Génération de la clé de chiffrement et création de l'objet Fernet0
 key = Fernet.generate_key()
 f = Fernet(key)
 
-@app.route('/encrypt/<string:valeur>') #comment
-def encryptage(valeur):
-    valeur_bytes = valeur.encode()  # Conversion str -> bytes
-    token = f.encrypt(valeur_bytes)  # Encrypt la valeur
-    return f"Valeur encryptée : {token.decode()}"  # Retourne le token en str
+@app.route('/')
+def hello_world():
+    return render_template('index.html')
+
+@app.route('/exercice1')
+def exo1():
+     return render_template('exercice1.html')
+
+@app.route('/exercice2')
+def exo2():
+     return render_template('exercice2.html'
+    app.run(debug=True)
                                                                                                                                                      
 if __name__ == "__main__":
   app.run(debug=True)
